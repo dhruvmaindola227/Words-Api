@@ -27,10 +27,10 @@ public class WordsService {
         Random random = new Random();
         final HashSet<String> set = new HashSet<>();
         while(set.size() != 24){
-            int index = random.nextInt(93);
+            int index = random.nextInt(93); //94 words in total in the words list.
             set.add(words.get(index));
         }
-        return new ArrayList<>(set);
+        return new ArrayList<>(set); //list of 24 different random words.
     }
 
 

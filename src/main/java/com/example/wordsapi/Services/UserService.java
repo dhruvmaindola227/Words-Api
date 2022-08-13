@@ -13,7 +13,7 @@ public class UserService {
 
     public int addUser(User user) {
         this.userRepository.save(user);
-        return 0;
+        return 0; //0 means successful
     }
 
     public int updateUser(User user , int userId){
