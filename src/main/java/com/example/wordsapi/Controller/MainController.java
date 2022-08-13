@@ -1,38 +1,24 @@
 package com.example.wordsapi.Controller;
-
-import com.example.wordsapi.Services.EasyWordsService;
-import com.example.wordsapi.Services.HardWordsService;
-import com.example.wordsapi.Services.MediumWordsService;
+import com.example.wordsapi.Services.WordsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.ArrayList;
+import java.util.HashSet;
+
 
 @RestController
-@RequestMapping(path = "wordsgame")
+@RequestMapping(path = "/wordsgame")
+
 public class MainController {
-    @Autowired
-    EasyWordsService easy;
-    @Autowired
-    MediumWordsService medium;
-    @Autowired
-    HardWordsService hard;
 
-    @GetMapping("/easy")
-    public ArrayList<String> getEasyArray(){
-       return easy.getList();
+    @Autowired
+    WordsService wordsService;
+
+    @GetMapping("/getwords")
+    public ArrayList<String> getRandomWords(){
+       return wordsService.returnRandomWords();
     }
 
-    @GetMapping("/medium")
-    public ArrayList<String> getMediumArray(){
-        return medium.getList();
-    }
-
-    @GetMapping("/hard")
-    public ArrayList<String> getHardArray(){
-        return hard.getList();
-    }
 }
