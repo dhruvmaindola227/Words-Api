@@ -1,9 +1,11 @@
 package com.example.wordsapi.Controller;
+import com.example.wordsapi.Repository.UserRepository;
+import com.example.wordsapi.Services.UserService;
 import com.example.wordsapi.Services.WordsService;
+import com.example.wordsapi.UserModel.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -12,13 +14,26 @@ import java.util.HashSet;
 @RequestMapping(path = "/wordsgame")
 
 public class MainController {
-
     @Autowired
-    WordsService wordsService;
+    UserService userService;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private WordsService wordsService;
 
     @GetMapping("/getwords")
     public ArrayList<String> getRandomWords(){
        return wordsService.returnRandomWords();
+    }
+
+    @PostMapping("/user/register")
+    public int registerUser(@RequestBody User user){
+        return userService.addUser(user); //returns 0 if successfully added.
+    }
+
+    @PostMapping("/user/update/{userId}")
+    public int updateuser(@RequestBody User user , @PathVariable int userId){
+        return userService.updateUser(user,userId); //returns 0 if successfully updated.
     }
 
 }
