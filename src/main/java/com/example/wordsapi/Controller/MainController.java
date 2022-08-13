@@ -11,7 +11,7 @@ import java.util.HashSet;
 
 
 @RestController
-@RequestMapping(path = "https://words-memory-game.herokuapp.com")
+@RequestMapping(path = "/wordsgame")
 
 public class MainController {
     @Autowired
