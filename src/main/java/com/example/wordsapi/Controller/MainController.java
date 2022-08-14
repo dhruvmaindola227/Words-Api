@@ -36,7 +36,7 @@ public class MainController {
         return userService.updateUser(user,userId); //returns 0 if successfully updated.
     }
 
-    @DeleteMapping(path = "/users/{userId}")
+    @DeleteMapping(path = "/user/{userId}")
     public void deleteUser(@PathVariable int userId){
         userService.deleteUser(userId);
     }
