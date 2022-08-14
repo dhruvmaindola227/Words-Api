@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 
 @RestController
@@ -39,6 +40,11 @@ public class MainController {
     @DeleteMapping(path = "/user/{userId}")
     public void deleteUser(@PathVariable int userId){
         userService.deleteUser(userId);
+    }
+
+    @GetMapping(path = "/leaderboard")
+    public List<User> getAllUserDetails(){
+        return userService.getAllUsers();
     }
 
 }

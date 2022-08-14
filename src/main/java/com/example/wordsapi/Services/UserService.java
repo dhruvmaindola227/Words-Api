@@ -5,6 +5,9 @@ import com.example.wordsapi.UserModel.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -24,5 +27,9 @@ public class UserService {
     public int deleteUser(int userId){
         this.userRepository.deleteById(userId);
         return 0;
+    }
+
+    public List<User> getAllUsers() {
+        return userRepository.getAllusers();
     }
 }
