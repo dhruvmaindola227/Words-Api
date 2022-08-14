@@ -22,7 +22,7 @@ public class MainController {
     private WordsService wordsService;
 
     @GetMapping("/getwords")
-    public ArrayList<String> getRandomWords(){
+    public HashSet<String> getRandomWords(){
        return wordsService.returnRandomWords();
     }
 
