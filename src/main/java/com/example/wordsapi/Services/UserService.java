@@ -20,4 +20,9 @@ public class UserService {
         this.userRepository.save(user);
         return 0;
     }
+
+    public int deleteUser(int userId){
+        this.userRepository.deleteById(userId);
+        return 0;
+    }
 }
