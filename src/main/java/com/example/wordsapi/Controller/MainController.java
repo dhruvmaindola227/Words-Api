@@ -47,4 +47,9 @@ public class MainController {
         return userService.getAllUsers();
     }
 
+    @PostMapping(path = "/login")
+    public User loginCredentials(@RequestBody User user){
+        return userRepository.findById(user.getUserId());
+    }
+
 }
