@@ -11,5 +11,5 @@ public interface UserRepository extends CrudRepository<User , Integer> {
     public User findById(int id);
 
     @Query("Select u from User u")
-    public List<User> getAllusers();
+    public List<User> getAllUsers();
 }
