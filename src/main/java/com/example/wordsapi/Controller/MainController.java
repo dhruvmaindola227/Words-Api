@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/wordsgame")
+@CrossOrigin(origins = "*" , allowedHeaders = "*")
 
 public class MainController {
     @Autowired
